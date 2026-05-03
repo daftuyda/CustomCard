@@ -1,0 +1,194 @@
+/* ============================================================
+   App shell — minimal racing-program tool
+   ============================================================ */
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+  gap: 56px;
+}
+
+/* ---------------- Masthead ---------------- */
+.app__masthead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.app__mark {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.app__mark-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-2), transparent);
+}
+
+.app__mark-text {
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.42em;
+  color: var(--text);
+  padding-left: 0.42em; /* compensate for letter-spacing */
+}
+
+.app__tagline {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+}
+
+.app__tagline a {
+  color: var(--text-2);
+  border-bottom-color: var(--hairline-2);
+}
+
+.app__tagline a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------------- Main ---------------- */
+.app__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.app__form-stage {
+  width: 100%;
+  max-width: 480px;
+  margin-top: clamp(20px, 8vh, 80px);
+}
+
+.app__card-stage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---------------- Toolbar ---------------- */
+.app__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  max-width: 760px;
+  padding: 0 4px;
+}
+
+.app__toolbar-id {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.app__toolbar-id:hover {
+  color: var(--accent);
+  background: rgba(255, 186, 71, 0.06);
+}
+
+.app__toolbar-id svg {
+  opacity: 0.7;
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 9px 16px;
+  border-radius: var(--radius);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  background: var(--surface-3);
+  border-color: var(--hairline-2);
+  color: var(--text-3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-2);
+  border: 1px solid var(--hairline-2);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text-3);
+}
+
+/* ---------------- Card stage ---------------- */
+.app__stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 28px;
+  overflow-x: auto;
+}
+
+.profile-card-wrap {
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* ---------------- Colophon ---------------- */
+.app__colophon {
+  margin-top: auto;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-4);
+  text-align: center;
+  padding-top: 32px;
+}

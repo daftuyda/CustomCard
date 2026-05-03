@@ -1,0 +1,158 @@
+/* ============================================================
+   TrainerForm — minimal racing-program input
+   ============================================================ */
+.tf {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tf__legend {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.tf__legend-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-4);
+  font-variant-numeric: tabular-nums;
+}
+
+.tf__legend-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+/* The input + submit are part of one composed control */
+.tf__field {
+  display: flex;
+  align-items: stretch;
+  background: var(--surface);
+  border: 1px solid var(--hairline-2);
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  overflow: hidden;
+}
+
+.tf__field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 186, 71, 0.16);
+  background: var(--surface-2);
+}
+
+.tf__field.is-error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(255, 122, 138, 0.14);
+}
+
+.tf__input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+}
+
+.tf__input::placeholder {
+  color: var(--text-4);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.tf__input:disabled {
+  color: var(--text-3);
+}
+
+.tf__submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  border-left: 1px solid var(--accent-2);
+  transition: background 0.15s ease;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.tf__submit:hover:not(:disabled) {
+  background: var(--accent-2);
+}
+
+.tf__submit:disabled {
+  background: var(--surface-3);
+  color: var(--text-4);
+  border-left-color: var(--hairline-2);
+}
+
+.tf__spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: tf-spin 0.7s linear infinite;
+}
+
+@keyframes tf-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Meta row — hint / sample / error */
+.tf__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--text-3);
+}
+
+.tf__msg {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf__msg--err {
+  color: var(--danger);
+}
+
+.tf__sample {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.tf__sample:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+.tf__sample-id {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-left: 2px;
+}
+
+.tf__sample:hover:not(:disabled) .tf__sample-id {
+  color: var(--accent);
+}

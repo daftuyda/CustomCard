@@ -1,0 +1,715 @@
+/* ============================================================
+   ModernTheme — Editorial racing program profile card
+   Width: 760px (PNG export captures at 2x)
+   ============================================================ */
+.uc {
+  --type-color: #5cd1ff;
+  --azure: #5cd1ff;
+  --rose: #ff8ec0;
+  --emerald: #7ee887;
+  --gold: #ffd66b;
+  --amber: #ffba47;
+
+  --bg: #11141c;
+  --bg-2: #161a24;
+  --bg-3: #1c2030;
+  --line: #232838;
+  --line-soft: #1c2030;
+  --line-strong: #2e3447;
+
+  --t-1: #f4f5f8;
+  --t-2: #b4bac8;
+  --t-3: #828999;
+  --t-4: #5c6374;
+
+  width: 760px;
+  background: var(--bg);
+  color: var(--t-1);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7), 0 4px 16px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* shared eyebrow label across sections — racing program micro-caps */
+.uc__eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--t-4);
+  line-height: 1;
+}
+
+/* ============================================================
+   TOP BAR — support card | trainer id
+   ============================================================ */
+.uc__top {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Support card panel */
+.uc__support {
+  padding: 16px 22px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.uc__support-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.uc__support-imgwrap {
+  flex-shrink: 0;
+  width: 68px;
+  padding: 3px;
+  border-radius: 8px;
+  background: var(--bg-3);
+  border: 1px solid var(--type-color);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 6px 14px -8px color-mix(in srgb, var(--type-color) 60%, transparent);
+  position: relative;
+}
+
+.uc__support-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.uc__support-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.uc__support-name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.15;
+  color: var(--t-1);
+}
+
+.uc__support-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+}
+
+.uc__type-pill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--type-color);
+  color: #0a0c11;
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.uc__rarity {
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.uc__lb {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+/* Trainer ID — racing post-position style */
+.uc__id {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 16px 22px;
+  background: var(--bg-2);
+  text-align: right;
+}
+
+.uc__id-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--t-4);
+  margin-bottom: 8px;
+}
+
+.uc__id-rule {
+  flex: 0 0 14px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.uc__id-rule:first-child {
+  flex: 1 1 auto;
+}
+
+.uc__id-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--t-1);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   HERO — character art + meta block
+   ============================================================ */
+.uc__hero {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+/* When the trainer has no inheritance data, drop the character column
+   entirely so the meta block fills the full card width. */
+.uc__hero--bare {
+  grid-template-columns: 1fr;
+}
+
+/* subtle vertical hairline separator */
+.uc__hero::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 280px;
+  width: 1px;
+  background: var(--line);
+}
+
+.uc__hero--bare::before {
+  display: none;
+}
+
+/* Empty state for missing inheritance data */
+.uc__no-inh {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--bg-2);
+  border: 1px dashed var(--line-strong);
+  border-radius: 10px;
+}
+
+.uc__no-inh-msg {
+  font-size: 0.92rem;
+  color: var(--t-2);
+  line-height: 1.4;
+}
+
+/* Empty state for missing support card */
+.uc__empty {
+  font-size: 0.85rem;
+  color: var(--t-3);
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.uc__hero-img {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 50% at 50% 100%, rgba(255, 186, 71, 0.08), transparent 70%),
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+/* gametora chara_stand assets are 512×512 with ~25% transparent space at the top.
+   Anchor the image to the bottom and scale ~20% past the container so the
+   character fills vertically and the empty top is clipped. */
+.uc__hero-img img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+}
+
+.uc__hero-meta {
+  padding: 22px 26px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Trainer block — TRAINER label / huge name / club pill */
+.uc__trainer-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.uc__trainer-name {
+  margin: 0;
+  font-size: 2.4rem; /* JS overrides via inline style for long/CJK names */
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--t-1);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.uc__club {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  align-self: flex-start;
+  margin-top: 4px;
+  max-width: 100%;
+}
+
+.uc__club-tier {
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.uc__club-name {
+  color: var(--t-2);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.uc__divider {
+  height: 1px;
+  background: var(--line);
+}
+
+.uc__char-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.uc__char-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--t-1);
+  line-height: 1.15;
+}
+
+/* Parents row */
+.uc__parents-block {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.uc__parents {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.uc__parents-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.uc__parent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--t-1);
+}
+
+.uc__parent-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-2);
+  border: 1px solid var(--line-strong);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* chara_stand assets are 512×512 full-body. Zoom in on the head:
+   modest scale + origin near the head so the face is centered in the circle. */
+.uc__parent-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  transform: scale(2.2);
+  transform-origin: 50% 20%;
+}
+
+.uc__parent-name {
+  white-space: nowrap;
+}
+
+.uc__parents-sep {
+  color: var(--t-4);
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.uc__affinity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.uc__affinity-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* ============================================================
+   STATS ROW
+   ============================================================ */
+.uc__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.uc__stats::before,
+.uc__stats::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+  background: var(--line);
+}
+
+.uc__stats::before { left: 33.333%; }
+.uc__stats::after { left: 66.666%; }
+
+.uc__stat {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.uc__stat-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  color: var(--t-1);
+  line-height: 1;
+}
+
+.uc__stat-sub {
+  font-size: 0.72rem;
+  color: var(--t-3);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* ============================================================
+   SPARK SECTIONS
+   ============================================================ */
+.uc__sparks {
+  display: flex;
+  flex-direction: column;
+}
+
+.uc__spark {
+  --marker: var(--azure);
+  padding: 16px 22px 18px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--bg);
+}
+
+.uc__spark:last-child {
+  border-bottom: none;
+}
+
+.uc__spark--azure   { --marker: var(--azure); }
+.uc__spark--rose    { --marker: var(--rose); }
+.uc__spark--emerald { --marker: var(--emerald); }
+.uc__spark--white   { --marker: #c8ccd6; }
+
+.uc__spark-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.uc__spark-marker {
+  width: 3px;
+  height: 14px;
+  background: var(--marker);
+  border-radius: 1.5px;
+  flex-shrink: 0;
+}
+
+.uc__spark-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--t-1);
+}
+
+.uc__spark-stats {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.74rem;
+  color: var(--t-3);
+}
+
+.uc__spark-total {
+  font-weight: 800;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.88rem;
+}
+
+.uc__spark-unit {
+  letter-spacing: 0.06em;
+}
+
+.uc__spark-main-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 186, 71, 0.1);
+  color: var(--amber);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+/* Chip list — used by colored spark sections */
+.uc__spark-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ============================================================
+   CHIP — colored spark entry
+   ============================================================ */
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 11px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  line-height: 1;
+  position: relative;
+}
+
+.uc__spark--azure   .chip { border-left: 2px solid rgba(92, 209, 255, 0.55); }
+.uc__spark--rose    .chip { border-left: 2px solid rgba(255, 142, 192, 0.55); }
+.uc__spark--emerald .chip { border-left: 2px solid rgba(126, 232, 135, 0.55); }
+
+.chip__total {
+  font-weight: 800;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.chip__star {
+  font-size: 0.7em;
+  margin-left: 1px;
+  vertical-align: 0.06em;
+}
+
+.chip__name {
+  font-weight: 600;
+  color: var(--t-1);
+  white-space: nowrap;
+}
+
+.chip__main {
+  font-weight: 700;
+  color: var(--amber);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 186, 71, 0.12);
+}
+
+/* Main parent contribution → gold accent ring + amber left edge */
+.chip--main {
+  border-color: rgba(255, 186, 71, 0.35);
+  border-left: 2px solid var(--amber) !important;
+  box-shadow: 0 0 0 1px rgba(255, 186, 71, 0.18);
+  background: linear-gradient(180deg, rgba(255, 186, 71, 0.06), transparent);
+}
+
+/* ============================================================
+   WHITE GRID — tabular two-column rows
+   ============================================================ */
+.uc__white-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 10px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--line);
+  border-radius: 5px;
+  font-size: 0.82rem;
+  line-height: 1.1;
+}
+
+.row__total {
+  font-weight: 800;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  min-width: 22px;
+  letter-spacing: -0.02em;
+}
+
+.row__star {
+  font-size: 0.68em;
+  margin-left: 1px;
+  vertical-align: 0.06em;
+}
+
+.row__name {
+  color: var(--t-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.row__main {
+  font-weight: 700;
+  color: var(--amber);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 186, 71, 0.12);
+}
+
+.row--main {
+  border-left-color: var(--amber);
+  background: linear-gradient(90deg, rgba(255, 186, 71, 0.06), transparent 60%);
+}
+
+.row--main .row__name {
+  color: var(--t-1);
+  font-weight: 600;
+}
+
+/* ============================================================
+   FOOT — tiny mark
+   ============================================================ */
+.uc__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--t-4);
+}
+
+.uc__foot-mark {
+  font-weight: 800;
+  color: var(--t-3);
+}
+
+.uc__foot-source {
+  font-weight: 500;
+}

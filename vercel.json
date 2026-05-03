@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/:id(\\d{9,12})", "destination": "/api/page?id=:id" },
+    { "source": "/((?!api|assets|favicon|.*\\.).*)", "destination": "/index.html" }
+  ]
+}
