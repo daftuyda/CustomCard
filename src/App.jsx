@@ -74,10 +74,14 @@ export default function App() {
     if (!cardRef.current) return;
     setDownloading(true);
     try {
-      const dataUrl = await toPng(cardRef.current, {
+      const node = cardRef.current;
+      const dataUrl = await toPng(node, {
         cacheBust: true,
         pixelRatio: 2,
         skipFonts: false,
+        width: node.offsetWidth,
+        height: node.offsetHeight,
+        style: { transform: 'none', transformOrigin: 'unset' },
       });
       const a = document.createElement('a');
       a.href = dataUrl;
@@ -102,10 +106,14 @@ export default function App() {
     setCopying(true);
     setCopied(false);
     try {
-      const blob = await toBlob(cardRef.current, {
+      const node = cardRef.current;
+      const blob = await toBlob(node, {
         cacheBust: true,
         pixelRatio: 2,
         skipFonts: false,
+        width: node.offsetWidth,
+        height: node.offsetHeight,
+        style: { transform: 'none', transformOrigin: 'unset' },
       });
       if (!blob) throw new Error('empty blob');
       await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);

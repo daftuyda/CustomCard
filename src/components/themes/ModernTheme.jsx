@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { characterStandUrl, characterIconUrl, supportCardArtUrl } from '../../lib/assets.js';
 import {
   formatCompact,
@@ -58,7 +59,7 @@ function pickTrainerNameSize(name) {
   return '1.15rem';
 }
 
-export default function ModernTheme({ profile }) {
+const ModernTheme = forwardRef(function ModernTheme({ profile }, ref) {
   const inh = profile.inheritance;
   const hasInheritance = !!inh;
   const charId = inh?.main_parent_id;
@@ -110,6 +111,7 @@ export default function ModernTheme({ profile }) {
 
   return (
     <article
+      ref={ref}
       className="uc"
       data-theme="modern"
       style={{ '--type-color': SUPPORT_TYPE_COLORS[cardType] }}
@@ -273,7 +275,9 @@ export default function ModernTheme({ profile }) {
 
     </article>
   );
-}
+});
+
+export default ModernTheme;
 
 function Parent({ id, name }) {
   return (
